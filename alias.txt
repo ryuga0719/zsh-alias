@@ -48,3 +48,13 @@ gcom () {
     git push origin HEAD;
 }
 
+
+# project
+kkkk () {
+    git init && git add . && git status
+	echo "Type commit category ex.add,modify..." && read category;
+	echo "Type ticket number" && read number;
+	echo "Type commit message" && read message;
+	git commit -m"${category} refs task${number}" -m"${message}"
+    git push origin HEAD;
+}
