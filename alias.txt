@@ -1,0 +1,50 @@
+# zsh
+alias ll='ls -la'
+alias rmf='rm -rf'
+alias vz='vim ~/.zshrc'
+alias sz="source ~/.zshrc"
+
+# VSCode
+alias co='code .'
+
+# git
+alias g='git'
+alias gb='git branch'
+alias gbd='git branch -D'
+alias gst='git status'
+alias gpl='git pull'
+alias gps='git push'
+alias gfo='git fetch origin'
+alias ga='git add .'
+alias gcm='git commit'
+alias gch='git checkout'
+alias gsta='git stash'
+alias gsta-u='git stash -u'
+alias gsta-a='(){git stash apply stash{$1}}'
+alias gsta-c='git stash clear'
+alias gsta-p='git stash pop'
+
+# test function
+hoge () {
+  echo 'Type your favorite food' && read food;
+  echo 'Your favorite food is '"${food}"', right?'
+}
+
+# Create repository from local
+ginit () {
+    git init && git add . && git status
+	git commit -m"initial commit" && git branch -M main
+    echo "Type repository name: " && read name;
+    git remote add origin https://github.com/ryuga0719/${name}.git
+	git push origin HEAD
+}
+
+# git commit
+gcom () {
+    git add .
+	git status
+	echo "Type commit message" && read message;
+	git commit -m"${message}"
+    git push origin HEAD;
+}
+
